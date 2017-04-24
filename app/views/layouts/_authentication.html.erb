@@ -1,0 +1,7 @@
+  <% if user_signed_in? %>
+    <li class=""><a>Usuario: <%= current_user.email %></a></li>
+    <li><%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete %></li>
+  <% else %>
+    <li class=""><%= link_to "Regístrate", new_user_registration_path %></li>
+    <li class=""><%= link_to "Login", new_user_session_path %></li>
+  <% end %>

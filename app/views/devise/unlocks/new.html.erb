@@ -1,0 +1,25 @@
+<section class= "section-padding">
+  <div class="container">
+		<div class="col-md-12">
+			<h2 class="ser-title">Reenviar instrucciones de desbloqueo</h2>
+			<hr class="botm-line">
+		</div>
+    
+    <div class="col-md-12">
+      <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <%= devise_error_messages! %>
+      
+        <div class="form-group">
+          <%= f.label :email, "Correo" %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+      
+        <div class="form-action">
+          <%= f.submit "Reenviar instrucciones de desbloqueo" %>
+        </div>
+      <% end %>
+      
+      <%= render "devise/shared/links" %>   
+    </div>
+  </div>
+</section>
