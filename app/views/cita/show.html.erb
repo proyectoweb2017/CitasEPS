@@ -1,0 +1,27 @@
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <p id="notice"><%= notice %></p>
+        </div>
+        
+        <p>
+          <strong>Paciente:</strong>
+          <%= @citum.paciente %>
+        </p>
+        
+        <p>
+          <strong>Fecha de la cita:</strong>
+          <%= @citum.citum_fecha %>
+        </p>
+        
+        <%= link_to 'Regresar', new_citum_path %>   
+      </div>
+    </div>
+  </div>
+</section>
+

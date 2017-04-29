@@ -1,0 +1,37 @@
+<%= form_for(@citum) do |f| %>
+  <% if @citum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@citum.errors.count, "error") %> prohibited this citum from being saved:</h2>
+
+      <ul>
+      <% @citum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :paciente, "Paciente" %><br>
+    <%= f.text_field :paciente, class:"form-control br-radius-zero"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :citum_fecha, "Fecha de la cita" %><br>
+    <%= f.datetime_select :citum_fecha, class:"form-control br-radius-zero" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :clinica_id, "Clínica" %><br>
+    <%= f.collection_select :clinica_id, Clinica.all, :id, :nombre, :prompt => "--Seleccione--", class:"form-control br-radius-zero"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :especialidad_id, "Especialidad" %><br>
+    <%= f.collection_select :especialidad_id, Especialidad.all, :id, :nombre, :prompt => "--Seleccione--", class:"form-control br-radius-zero" %>
+  </div> 
+  <div class="form-group">
+    <%= f.label :medico_id, "Médico" %><br>
+    <%= f.collection_select :medico_id, Medico.all, :id, :nombre, :prompt => "--Seleccione--", class:"form-control br-radius-zero" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Crear cita", class:"btn btn-form" %>
+  </div>
+<% end %>

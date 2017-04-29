@@ -1,17 +1,15 @@
 Rails.application.routes.draw do
+  resources :cita
   devise_for :users
   root 'pages#index'
-
   get 'pages/about_us'
-
   get 'pages/foro'
-
+  
   get 'pages/contact_us'
+  post 'pages/contact_us' => 'pages#new_contact'
   
   get 'pages/registro'
-  
   get 'pages/login'
-
   get 'pages/map'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

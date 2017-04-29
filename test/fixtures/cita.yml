@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paciente: MyString
+  citum_fecha: 2017-04-29 01:51:15
+  clinica_id: 1
+  especialidad_id: 1
+  medico_id: 1
+
+two:
+  paciente: MyString
+  citum_fecha: 2017-04-29 01:51:15
+  clinica_id: 1
+  especialidad_id: 1
+  medico_id: 1

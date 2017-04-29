@@ -20,30 +20,30 @@
 					<div class="contact-info">
 							<h3 class="cnt-ttl">¡Tenga cualquier consulta! O bien Reserve una cita</h3>
 							<div class="space"></div>
-                            <div id="sendmessage">Tu mensaje ha sido enviado. ¡Gracias!</div>
-                            <div id="errormessage"></div>
-							<form action="" method="post" role="form" class="contactForm">
-							    <div class="form-group">
-                                    <input type="text" name="name" class="form-control br-radius-zero" id="name" placeholder="Tu Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <%= form_tag :action => 'contact_us' do %>
+					        <% if flash[:notice] %>
+                                <div class="alert alert-success">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <%= flash[:notice] %>
+                                </div>
+                            <% end %>
+                               <div class="form-group">
+                                    <%= text_field :contactos, :nombre, class:"form-control br-radius-zero", placeholder:"Tu Nombre"%>
                                     <div class="validation"></div>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="Tu Correo" data-rule="email" data-msg="Please enter a valid email" />
-                                    <div class="validation"></div>
+                               <div class="form-group">
+                                    <%= email_field :contactos, :correo, class:"form-control br-radius-zero", placeholder:"Tu Correo"%>
                                 </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control br-radius-zero" name="subject" id="subject" placeholder="Asunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                                    <div class="validation"></div>
+                               <div class="form-group">
+                                    <%= text_field :contactos, :asunto, class:"form-control br-radius-zero", placeholder:"Asunto"%>
                                 </div>
-                                <div class="form-group">
-                                    <textarea class="form-control br-radius-zero" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensaje"></textarea>
-                                    <div class="validation"></div>
-                                </div>
-                                
-								<div class="form-action">
-									<button type="submit" class="btn btn-form">Enviar Mensaje</button>
-								</div>
-							</form>
+                               <div class="form-group">
+                                    <%= text_area :contactos, :mensaje, class:"form-control br-radius-zero", rows:"5", placeholder:"Mensaje"%>
+                                </div>                               
+								<%= submit_tag 'Enviar Mensaje', class:"btn btn-form"%>
+							<% end %>
 					</div>
 				</div>
 			</div>
